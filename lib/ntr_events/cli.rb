@@ -20,15 +20,15 @@ class NtrEvents::CLI
      puts "What story do you want to read?"
      input = gets.strip
 
-     if input.to_i-1 <= TechcrunchCli::Story.all.size
-       story = TechcrunchCli::Story.all[input.to_i-1]
+     if input.to_i-1 <= NtrEvents::Event.all.size
+       story = NtrEvents::Event.all[input.to_i-1]
 
-       puts story.title
+       puts event.name
        puts
-       puts "By: #{story.author}"
-       puts "Summary: #{story.summary}"
+       puts "Event Round #{event.round}"
+       puts "Winners: #{story.summary}"
 
-       puts "Would you like to read more?"
+       puts "Would you like to see more?"
        answer = gets.strip
 
        if ["Y", "YES"].include?(answer.upcase)
