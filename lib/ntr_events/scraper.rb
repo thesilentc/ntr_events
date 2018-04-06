@@ -11,9 +11,9 @@ class NtrEvents::Scraper
 # event.name = doc.css(".title-txt h1").map {|e| puts e.text}
   def scrape_events
     @doc = Nokogiri::HTML(open("http://nationalteamroping.com/articles.sec-26-1-results.html"))
-    @doc.search(".title-txt h1").each do |events_li|
+    @doc.search(".title-txt h1").collect{ |e| "#{e}" }  #{|e| e.text.gsub}
       event = NtrEvents::Event.new
-
+cd
       a_tag = events_li.search("h1 a")
       if a_tag
 
@@ -27,5 +27,3 @@ class NtrEvents::Scraper
       end
     end
   end
-
-end
